@@ -16,14 +16,12 @@ function routesURL()
 
 	switch ($url) {
 		case 'home':
-			include_once "view/pages/home.php";
+			include_once "view/pages/home.html";
 			break;
-
 
 		case 'sobre':
 			include_once "view/pages/sobre.php";
 			break;
-
 
 		default:
 			include_once "view/pages/404.php";
