@@ -78,28 +78,6 @@ public function cadastrar($nome, $email, $senha)
 		}
 	}
 
-	// buscar todos comentários
-	public function buscarDadosUser($id)
-	{
-
-		$cmd = $this->pdo->prepare("SELECT * FROM usuarios WHERE id = :id ");
-		$cmd->bindValue(":id",$id);
-		$cmd->execute();
-		$dados = $cmd->fetch();
-		return $dados;
-
-	}
-
-	public function buscarTodosUsuarios()
-	{
-		$cmd = $this->pdo->prepare("SELECT usuarios.id, usuarios.nome, usuarios.email, COUNT(comentario.id) as 'quantidade' FROM usuarios left join comentario ON usuarios.id =comentario.fk_id_usuario group by usuarios.id");
-		$cmd->execute();
-		$dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
-		return $dados;
-	}
-
-
-
 }
 
 ?>
